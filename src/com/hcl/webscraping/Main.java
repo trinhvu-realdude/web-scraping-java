@@ -55,10 +55,10 @@ public class Main {
 
                                 // create folder for tag in category
                                 for (Tag tag : tags) {
-                                        File tagFolder = new File(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle());
+                                        File tagFolder = new File(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", ""));
                                         if (!tagFolder.exists()) {
                                                 tagFolder.mkdir();
-                                                LOGGER.log(Level.INFO, "Creating {0} folder", Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle());
+                                                LOGGER.log(Level.INFO, "Creating {0} folder", Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", ""));
                                         }
 
                                         List<Image> images = service.getImagesByTag(tag.getUrl());
@@ -68,7 +68,7 @@ public class Main {
                                         LOGGER.log(Level.INFO, "Generating Images by {0} data", tag.getUrl());
 
                                         // write image data to json file
-                                        FileWriter imagesFile = new FileWriter(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle() + Constants.SLASH + tag.getUrl().substring(1) + Constants.JSON);
+                                        FileWriter imagesFile = new FileWriter(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", "") + Constants.SLASH + tag.getUrl().substring(1) + Constants.JSON);
                                         imagesFile.write(imagesData);
                                         LOGGER.log(Level.INFO, "Writing {0}.json", tag.getUrl().substring(1));
                                         imagesFile.close();
@@ -84,7 +84,7 @@ public class Main {
                 } catch (IOException e) {
                         LOGGER.log(Level.SEVERE, "IOException occur", e);
                 }
-                
+
                 LOGGER.log(Level.INFO, "DONE!!!");
         }
 }

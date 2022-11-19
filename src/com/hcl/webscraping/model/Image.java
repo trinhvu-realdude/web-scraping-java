@@ -6,6 +6,8 @@ public class Image {
         private String name;
         private String resolution;
         private String tag;
+        private String dataUrl;
+        private String downloadUrl;
         private String dataSource;
         private String downloadSource;
 
@@ -39,6 +41,22 @@ public class Image {
 
         public void setTag(String tag) {
                 this.tag = tag;
+        }
+
+        public String getDataUrl() {
+                return dataUrl;
+        }
+
+        public void setDataUrl(String dataUrl) {
+                this.dataUrl = dataUrl;
+        }
+
+        public String getDownloadUrl() {
+                return downloadUrl;
+        }
+
+        public void setDownloadUrl(String downloadUrl) {
+                this.downloadUrl = downloadUrl;
         }
 
         public String getDataSource() {
