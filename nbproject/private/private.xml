@@ -5,9 +5,9 @@
         <group>
             <file>file:/E:/NetBeansProjects/WebScraping/src/com/hcl/webscraping/model/Image.java</file>
             <file>file:/E:/NetBeansProjects/WebScraping/src/com/hcl/webscraping/model/Category.java</file>
-            <file>file:/E:/NetBeansProjects/WebScraping/src/com/hcl/webscraping/App.java</file>
             <file>file:/E:/NetBeansProjects/WebScraping/src/com/hcl/webscraping/constant/Constants.java</file>
             <file>file:/E:/NetBeansProjects/WebScraping/src/com/hcl/webscraping/service/Service.java</file>
+            <file>file:/E:/NetBeansProjects/WebScraping/src/com/hcl/webscraping/Main.java</file>
             <file>file:/E:/NetBeansProjects/WebScraping/src/com/hcl/webscraping/model/Tag.java</file>
         </group>
     </open-files>

@@ -14,8 +14,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Service {
+
+        private static final Logger LOGGER = Logger.getLogger(Service.class.getName());
 
         public List<Image> getImagesByTag(String urlTag) {
                 List<Image> list = new ArrayList<>();
@@ -25,6 +29,7 @@ public class Service {
                         Document document = Jsoup.connect(Constants.BASE_URL + urlTag)
                                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.42")
                                 .get();
+                        LOGGER.log(Level.WARNING, "Fetching " + Constants.BASE_URL + urlTag);
 
                         Elements elements = document.getElementsByClass("single_image");
 
@@ -67,6 +72,7 @@ public class Service {
                         Document document = Jsoup.connect(Constants.BASE_URL)
                                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.42")
                                 .get();
+                        LOGGER.log(Level.WARNING, "Fetching " + Constants.BASE_URL);
 
                         Elements elements = document.getElementsByClass("relaxed");
 
@@ -114,6 +120,7 @@ public class Service {
                         Document document = Jsoup.connect(Constants.BASE_URL + urlCategory)
                                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.42")
                                 .get();
+                        LOGGER.log(Level.WARNING, "Fetching " + Constants.BASE_URL + urlCategory);
 
                         Elements elements = document.getElementsByClass("stackable");
 
