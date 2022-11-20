@@ -5,6 +5,7 @@ public class Tag {
         private String name;
         private String title;
         private String url;
+        private String category;
         private String thumbSource;
         private int quantity;
 
@@ -30,6 +31,14 @@ public class Tag {
 
         public void setUrl(String url) {
                 this.url = url;
+        }
+
+        public String getCategory() {
+                return category;
+        }
+
+        public void setCategory(String category) {
+                this.category = category;
         }
 
         public String getThumbSource() {

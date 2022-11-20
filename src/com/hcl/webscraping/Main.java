@@ -72,6 +72,11 @@ public class Main {
                                         imagesFile.write(imagesData);
                                         LOGGER.log(Level.INFO, "Writing {0}.json", tag.getUrl().substring(1));
                                         imagesFile.close();
+                                        
+                                        // download image file to tag folder respectively
+//                                        for (Image image : images) {
+//                                                service.downloadImageByUrl(image.getDownloadUrl(), Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", "") + Constants.SLASH, image);
+//                                        }
 
                                         LOGGER.log(Level.FINE, "Tag {0} completed!", tag.getTitle());
                                 }
