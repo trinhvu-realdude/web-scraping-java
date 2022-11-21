@@ -23,4 +23,10 @@ public interface Constants {
         public final String JPG = ".jpg";
 
         public final String PNG = ".png";
+        
+        public final int SLEEP_TIME_CATEGORY = 10000;
+        
+        public final int SLEEP_TIME_TAG = 20000;
+        
+        public final int SLEEP_TIME_IMAGE = 5000;
 }

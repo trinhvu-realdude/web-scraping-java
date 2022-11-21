@@ -26,6 +26,19 @@ public class Service {
 
         private static final Logger LOGGER = Logger.getLogger(Service.class.getName());
 
+        private static class ServiceHelper {
+
+                private static final Service INSTANCE = new Service();
+        }
+
+        private Service() {
+
+        }
+
+        public static Service getInstance() {
+                return ServiceHelper.INSTANCE;
+        }
+
         public List<Image> getImagesByTag(String urlTag) {
                 List<Image> list = new ArrayList<>();
 
