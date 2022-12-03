@@ -200,6 +200,39 @@ public class Service {
 
         }
 
+        public List<Tag> searchByChar(char c) throws IOException {
+                List<Tag> list = new ArrayList<>();
+
+                Document document = Jsoup.connect(Constants.BASE_URL + "/search?q=" + c)
+                        .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.42")
+                        .get();
+
+                Elements elements = document.getElementsByClass("stackable");
+
+                for (Element e : elements) {
+                        for (int i = 0; i < e.childrenSize(); i++) {
+                                Tag tag = new Tag();
+
+                                String name = e.child(i).child(0).child(1).child(0).child(0).text();
+                                String title = e.child(i).child(0).child(0).attr("alt");
+                                String url = e.child(i).child(0).attr("href");
+                                String thumbSource = Constants.BASE_URL + e.child(i).child(0).child(0).attr("data-src");
+                                int quantity = Integer.parseInt(e.child(i).child(0).child(1).child(0).child(1).text());
+
+                                tag.setName(name);
+                                tag.setTitle(title);
+                                tag.setUrl(url);
+                                tag.setCategory(null);
+                                tag.setThumbSource(thumbSource);
+                                tag.setQuantity(quantity);
+
+                                list.add(tag);
+                        }
+                }
+                
+                return list;
+        }
+
         public String generateDataToJson(Object data) throws JsonProcessingException {
                 ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
                 String result = ow.writeValueAsString(data);

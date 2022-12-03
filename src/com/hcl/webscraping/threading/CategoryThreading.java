@@ -3,7 +3,6 @@ package com.hcl.webscraping.threading;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.hcl.webscraping.constant.Constants;
 import com.hcl.webscraping.model.Category;
-import com.hcl.webscraping.model.Image;
 import com.hcl.webscraping.model.Tag;
 import com.hcl.webscraping.service.Service;
 import java.io.File;
@@ -52,7 +51,7 @@ public class CategoryThreading implements Runnable {
                                 LOGGER.log(Level.INFO, "Writing {0}-tags.json", category.getName());
                                 tagsFile.close();
 
-                                LOGGER.log(Level.INFO, "Sleeping in {0} milliseconds...", Constants.SLEEP_TIME_CATEGORY);
+                                LOGGER.log(Level.INFO, "Thread " + category.getName() + " is sleeping in " + Constants.SLEEP_TIME_CATEGORY + " milliseconds...");
                                 Thread.sleep(Constants.SLEEP_TIME_CATEGORY);
 
                                 TagThreading tagThreading = new TagThreading(tags, category);

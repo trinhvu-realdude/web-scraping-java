@@ -65,4 +65,14 @@ public class DownloadImage {
 //
 //                LOGGER.log(Level.INFO, "DONE!!!");
 //        }
+        
+        public static void main(String[] args) {
+                Service s = Service.getInstance();
+                
+                try {
+                        System.out.println(s.generateDataToJson(s.searchByChar('b')));
+                } catch (IOException ex) {
+                        Logger.getLogger(DownloadImage.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
 }

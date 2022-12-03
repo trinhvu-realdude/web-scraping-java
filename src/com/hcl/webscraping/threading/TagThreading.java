@@ -52,12 +52,11 @@ public class TagThreading implements Runnable {
                                 LOGGER.log(Level.INFO, "Writing {0}.json", tag.getUrl().substring(1));
                                 imagesFile.close();
 
-                                LOGGER.log(Level.INFO, "Sleeping in {0} milliseconds...", Constants.SLEEP_TIME_TAG);
+                                LOGGER.log(Level.INFO, "Thread " + tag.getName() + " is sleeping in " + Constants.SLEEP_TIME_TAG + " milliseconds...");
                                 Thread.sleep(Constants.SLEEP_TIME_TAG);
 
 //                                ImageThreading imageThreading = new ImageThreading(images, category, tag);
 //                                imageThreading.start();
-                                
                                 LOGGER.log(Level.FINE, "Tag {0} completed!", tag.getTitle());
                         }
 
