@@ -4,6 +4,7 @@ public class Tag {
 
         private String name;
         private String title;
+        private String folderName;
         private String url;
         private String category;
         private String thumbSource;
@@ -29,6 +30,14 @@ public class Tag {
                 return url;
         }
 
+        public String getFolderName() {
+                return folderName;
+        }
+
+        public void setFolderName(String folderName) {
+                this.folderName = folderName;
+        }
+        
         public void setUrl(String url) {
                 this.url = url;
         }

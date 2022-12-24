@@ -146,6 +146,7 @@ public class Service {
 
                                         tag.setName(name);
                                         tag.setTitle(title);
+                                        tag.setFolderName(title.replaceAll("[/:*?<>|]", ""));
                                         tag.setUrl(url);
                                         tag.setCategory(category);
                                         tag.setThumbSource(thumbSource);

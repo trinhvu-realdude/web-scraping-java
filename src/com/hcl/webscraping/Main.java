@@ -55,10 +55,10 @@ public class Main {
 
                                 // create folder for tag in category
                                 for (Tag tag : tags) {
-                                        File tagFolder = new File(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", ""));
+                                        File tagFolder = new File(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getFolderName());
                                         if (!tagFolder.exists()) {
                                                 tagFolder.mkdir();
-                                                LOGGER.log(Level.INFO, "Creating {0} folder", Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", ""));
+                                                LOGGER.log(Level.INFO, "Creating {0} folder", Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getFolderName());
                                         }
 
                                         List<Image> images = service.getImagesByTag(tag.getUrl());
