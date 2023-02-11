@@ -68,14 +68,14 @@ public class Main {
                                         LOGGER.log(Level.INFO, "Generating Images by {0} data", tag.getUrl());
 
                                         // write image data to json file
-                                        FileWriter imagesFile = new FileWriter(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", "") + Constants.SLASH + tag.getUrl().substring(1) + Constants.JSON);
+                                        FileWriter imagesFile = new FileWriter(Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getFolderName() + Constants.SLASH + tag.getUrl().substring(1) + Constants.JSON);
                                         imagesFile.write(imagesData);
                                         LOGGER.log(Level.INFO, "Writing {0}.json", tag.getUrl().substring(1));
                                         imagesFile.close();
                                         
                                         // download image file to tag folder respectively
 //                                        for (Image image : images) {
-//                                                service.downloadImageByUrl(image.getDownloadUrl(), Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getTitle().replaceAll("[/:*?<>|]", "") + Constants.SLASH, image);
+//                                                service.downloadImageByUrl(image.getDownloadUrl(), Constants.BASE_PATH + category.getName() + Constants.SLASH + tag.getFolderName() + Constants.SLASH, image);
 //                                        }
 
                                         LOGGER.log(Level.FINE, "Tag {0} completed!", tag.getTitle());

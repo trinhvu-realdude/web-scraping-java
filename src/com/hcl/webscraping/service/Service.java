@@ -140,7 +140,7 @@ public class Service {
                                         String name = e.child(i).child(0).child(1).child(0).child(0).text();
                                         String title = e.child(i).child(0).child(0).attr("alt");
                                         String url = e.child(i).child(0).attr("href");
-                                        String category = urlCategory.replace("/cat", "");
+                                        String category = urlCategory.replace("/cat/", "");
                                         String thumbSource = Constants.BASE_URL + e.child(i).child(0).child(0).attr("data-src");
                                         int quantity = Integer.parseInt(e.child(i).child(0).child(1).child(0).child(1).text());
 
@@ -148,7 +148,7 @@ public class Service {
                                         tag.setTitle(title);
                                         tag.setFolderName(title.replaceAll("[/:*?<>|]", ""));
                                         tag.setUrl(url);
-                                        tag.setCategory(category);
+                                        tag.setCategory(Constants.SLASH + category.substring(0,1).toUpperCase() + category.substring(1));
                                         tag.setThumbSource(thumbSource);
                                         tag.setQuantity(quantity);
 
